@@ -14,32 +14,29 @@
         <ul id="data-list" class="list-group"></ul>
     </div>
     <script src="script.js">
-        // API URL-г оруулна
-            const apiUrl = 'https://jsonplaceholder.typicode.com/users'; // Жишээ API
-
-            // Жагсаалтаа авах элементийг тодорхойлно
+            const apiUrl = 'https://jsonplaceholder.typicode.com/users'; 
             const dataList = document.getElementById('data-list');
-
-            // Fetch функц ашиглан өгөгдөл авах
             fetch(apiUrl)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Сервертэй холбогдоход алдаа гарлаа!');
                     }
                     return response.json();
-                })
-                .then(data => {
-                    // Өгөгдлийг жагсаалт болгон хувиргах
+                }
+            )
+                .then(data => {                 
                     data.forEach(item => {
                         const listItem = document.createElement('li');
-                        listItem.className = 'list-group-item'; // Bootstrap ангилал
-                        listItem.textContent = item.name; // Жишээ нь нэрийг харуулна
+                        listItem.className = 'list-group-item';
+                        listItem.textContent = item.name; 
                         dataList.appendChild(listItem);
                     });
-                })
+                }
+            )
                 .catch(error => {
                     console.error('Алдаа:', error);
-                });
+                }
+            );
     </script>
 </body>
 
